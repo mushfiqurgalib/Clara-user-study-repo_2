@@ -35,4 +35,4 @@
 -        return new AutoCloseConnectContext(connectContext);
      }
  
-     public static void analyze(StatementBase statementBase) throws UserException {
+    
