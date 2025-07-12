@@ -13,7 +13,7 @@ public class StatisticsUtil {
          if (!FeConstants.enableInternalSchemaDb) {
              return Collections.emptyList();
          }
--        try (AutoCloseConnectContext r = StatisticsUtil.buildConnectContext()) {
+        try (AutoCloseConnectContext r = StatisticsUtil.buildConnectContext()) {
              if (Config.isCloudMode()) {
                  r.connectContext.getCloudCluster();
              }
@@ -21,10 +21,10 @@ public class StatisticsUtil {
      }
  
      public static AutoCloseConnectContext buildConnectContext() {
--        return buildConnectContext(false);
+        return buildConnectContext(false);
      }
  
--    public static AutoCloseConnectContext buildConnectContext(boolean limitScan) {
+    public static AutoCloseConnectContext buildConnectContext(boolean limitScan) {
          ConnectContext connectContext = new ConnectContext();
          SessionVariable sessionVariable = connectContext.getSessionVariable();
          sessionVariable.internalSession = true;
@@ -32,7 +32,7 @@ public class StatisticsUtil {
          connectContext.setQualifiedUser(UserIdentity.ROOT.getQualifiedUser());
          connectContext.setCurrentUserIdentity(UserIdentity.ROOT);
          connectContext.setStartTime();
--        return new AutoCloseConnectContext(connectContext);
+        return new AutoCloseConnectContext(connectContext);
      }
  
     
